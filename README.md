@@ -10,7 +10,7 @@ Análise **descritiva** do cancelamento de clientes (*churn*) de uma operadora d
 ## ⚡ Visualização Rápida
 
 - **Vídeo:** [assistir à demonstração](https://youtu.be/hXc_2r_CLHQ) | *Dica: para visualizar o dashboard com melhor qualidade, selecione 720p nas configurações do vídeo (⚙️ → Qualidade), caso o YouTube não ajuste automaticamente.*
-- **Dashboard publicado:** _link será adicionado após a publicação._
+- **Dashboard publicado:** [abrir o dashboard](https://gpdvaik79ssbahjtvqw7wm.streamlit.app/) (veja [como usar](#-usar-o-dashboard-publicado) logo abaixo; se aparecer a tela de "app dormindo", é só acordá-lo)
 - **Imagens do dashboard:** pasta [`screenshots/`](screenshots/) e galeria logo abaixo
 - **Raciocínio da análise, passo a passo:** [`eda.ipynb`](eda.ipynb) (já salvo com as saídas, dá para ler direto no GitHub)
 
@@ -64,6 +64,27 @@ Cada achado aponta para o gráfico do dashboard onde ele aparece.
 - **Cheque eletrônico:** o churn continua maior dentro do contrato mensal (53,7% contra 31,6% a 34,1%), mas a diferença é menor do que na base toda, porque 78% desses clientes estão no contrato mensal.
 
 Cada achado vem com **interpretação prudente, ação a testar, como avaliar, fonte e ressalva**. Eles estão no notebook (seção *Etapa 6: Insights*) e na aba **Recomendações** do dashboard.
+
+---
+
+## 🌐 Usar o dashboard publicado
+
+**Para usar a versão online:** basta abrir o [link do dashboard](COLE_AQUI_O_LINK_DO_APP) no navegador (computador ou celular).
+
+**1. Se o app estiver "dormindo".** O app fica hospedado em um serviço gratuito, que o coloca em repouso após um período sem acessos. Nesse caso aparece uma tela dizendo que o app foi pausado por inatividade. Clique no botão **"Yes, get this app back up!"** e aguarde alguns instantes (costuma levar de alguns segundos a um minuto) até a página carregar.
+
+**2. Envie a base de dados.** O repositório não inclui o CSV (a base pertence à Kaggle), então o app abre com um guia de 3 passos:
+
+1. **Baixe** a base no [Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn) (botão *Download*; o Kaggle pode pedir login gratuito).
+2. **Extraia** o arquivo `.zip`. Dentro está `WA_Fn-UseC_-Telco-Customer-Churn.csv`.
+3. **Envie** esse `.csv` no campo da página. O dashboard abre em seguida.
+
+**3. Explore.** Use os filtros da barra lateral e navegue pelas abas.
+
+**Bom saber**
+- O arquivo enviado vale só para a sua sessão: se você **atualizar a página** ou fechar e abrir de novo, é preciso enviá-lo outra vez. Ele não é salvo no repositório nem compartilhado com outros visitantes.
+- Se o app não abrir ou a espera for longa demais, os resultados estão no **vídeo de demonstração**, nas **capturas de tela** e no **notebook** deste repositório, sem precisar do app.
+- Quer rodar no seu computador? Veja [Como executar](#️-como-executar).
 
 ---
 

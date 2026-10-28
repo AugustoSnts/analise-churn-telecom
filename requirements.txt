@@ -1,10 +1,8 @@
-# Dependências do projeto de análise de churn.
-# Versões sem fixar por enquanto; na Etapa 7 (GitHub) vamos fixar
-# as versões que você efetivamente usou (rode: pip freeze) para
-# garantir que o dashboard publicado funcione igual ao local.
+# Dependências do dashboard (usadas também na hospedagem).
+# Versões fixadas para que o app publicado funcione igual ao local.
+# Para abrir o notebook, use também requirements-notebook.txt.
 
-pandas
-numpy
-plotly        # gráficos interativos do dashboard (Etapa 5)
-streamlit     # aplicação web (Etapa 5)
-jupyter       # para abrir o notebook eda.ipynb
+pandas==2.3.3
+numpy==2.3.4
+plotly==6.4.0
+streamlit==1.51.0

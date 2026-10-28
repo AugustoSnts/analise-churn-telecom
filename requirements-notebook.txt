@@ -1,0 +1,5 @@
+# Dependências extras para abrir o notebook eda.ipynb.
+# O "-r" inclui tudo do requirements.txt
+
+-r requirements.txt
+jupyter

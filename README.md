@@ -103,7 +103,10 @@ Rode sempre a partir da **pasta raiz** do projeto (a mesma que contém `app.py`)
 
 ### (Opcional) Passo 4: abrir o notebook
 
+O notebook usa o Jupyter, que fica em um arquivo de dependências à parte (o dashboard não precisa dele):
+
 ```bash
+pip install -r requirements-notebook.txt
 jupyter notebook eda.ipynb
 ```
 
@@ -111,14 +114,15 @@ Abra o Jupyter a partir da **pasta raiz** do projeto (é de onde o notebook proc
 
 ### Sem copiar o arquivo para `data/`
 
-Se o app não encontrar o CSV, ele mostra um botão **"Enviar arquivo CSV"**. Basta enviar o mesmo arquivo do Kaggle por ele: o app valida as colunas e funciona igual.
+Se o app não encontrar o CSV, ele mostra na tela o link do Kaggle e os 3 passos (baixar, extrair e enviar) e abre um campo para você enviar o arquivo. Envie o `.csv` que está dentro do `.zip`: o app valida as colunas e funciona igual. O arquivo vale só para a sua sessão e não é salvo no repositório.
 
 ### Se algo não funcionar
 
 | Mensagem ou sintoma | Causa provável | O que fazer |
 |---|---|---|
-| O app abre pedindo para enviar um arquivo | CSV não está em `data/` com o nome certo | Confira se o caminho é `data/WA_Fn-UseC_-Telco-Customer-Churn.csv` (nome original, sem renomear) ou envie o arquivo pelo botão |
+| O app abre mostrando os 3 passos para enviar o CSV | O CSV não está em `data/` com o nome certo (é o comportamento esperado no app publicado) | Siga os 3 passos da tela, ou salve o arquivo como `data/WA_Fn-UseC_-Telco-Customer-Churn.csv` (nome original, sem renomear) |
 | `ModuleNotFoundError` | Dependências não instaladas ou ambiente virtual desativado | Ative o `.venv` e rode `pip install -r requirements.txt` |
+`ModuleNotFoundError` ao abrir o notebook (por exemplo, `jupyter`) | Dependências do notebook não instaladas | Rode `pip install -r requirements-notebook.txt` |
 | `streamlit: command not found` | Streamlit instalado fora do ambiente ativo | Use `python -m streamlit run app.py` |
 | Erro dizendo que faltam colunas | O arquivo enviado não é o da base Telco | Baixe novamente do link do Kaggle |
 
@@ -132,7 +136,8 @@ Se o app não encontrar o CSV, ele mostra um botão **"Enviar arquivo CSV"**. Ba
 analise-churn-telecom/
 ├── app.py                 # dashboard Streamlit (só a interface)
 ├── eda.ipynb              # notebook: inspeção, limpeza, exploração e insights
-├── requirements.txt       # dependências com versões fixadas
+├── requirements.txt       # dependências do dashboard, com versões fixadas
+├── requirements-notebook.txt  # dependências extras para abrir o notebook
 ├── .streamlit/
 │   └── config.toml        # tema escuro com roxo como cor de destaque
 ├── src/

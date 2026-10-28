@@ -64,6 +64,9 @@ st.set_page_config(
 # Caminho do CSV relativo ao arquivo app.py
 CAMINHO_CSV = Path(__file__).parent / "data" / "WA_Fn-UseC_-Telco-Customer-Churn.csv"
 
+# Página da base no Kaggle (usada nas instruções de upload)
+URL_KAGGLE = "https://www.kaggle.com/datasets/blastchar/telco-customer-churn"
+
 # Tamanho mínimo de grupo para o ranking de principais fatores
 MIN_CLIENTES_RANKING = 100
 
@@ -133,10 +136,34 @@ def carrega_dados_cache(caminho_texto):
     return carregar_dados(caminho_texto)
 
 
+def mostra_instrucoes_upload():
+    """
+    Mostra, ANTES do campo de envio, como obter e enviar o CSV.
+    No app publicado o CSV não está no repositório.
+    """
+    st.warning(
+        "**Base de dados não encontrada.** Este aplicativo não inclui o arquivo CSV, porque a base "
+        "pertence aos autores originais. Para ver o dashboard com os dados reais, siga os 3 passos:"
+    )
+    st.markdown(
+        f"""
+1. **Baixe** a base no Kaggle: [Telco Customer Churn]({URL_KAGGLE}) (clique em *Download*; o Kaggle
+   pode pedir um login gratuito).
+2. **Extraia** o arquivo `.zip` baixado. Dentro dele está o arquivo `{CAMINHO_CSV.name}`.
+3. **Envie** esse arquivo `.csv` no campo abaixo.
+"""
+    )
+    st.caption(
+        "O arquivo é usado só na sua sessão: não é incluído no repositório nem compartilhado com outros "
+        "visitantes. Rodando no seu computador? Salve o CSV em `data/` com o nome original e o app o "
+        "carrega automaticamente."
+    )
+
+
 def carrega_base():
     """
     Retorna o DataFrame limpo.
-    Se o CSV não estiver em data/, solicita upload do arquivo.
+    Se o CSV não estiver em data/, mostra as instruções e solicita o upload do arquivo.
     """
     if CAMINHO_CSV.exists():
         try:
@@ -149,12 +176,9 @@ def carrega_base():
     if "df_upload" in st.session_state:
         return st.session_state["df_upload"]
 
+    mostra_instrucoes_upload()
     arquivo = st.file_uploader("Envie o arquivo CSV da base", type="csv", key="uploader_csv")
     if arquivo is None:
-        st.warning(
-            "Base de dados não encontrada em `data/WA_Fn-UseC_-Telco-Customer-Churn.csv`. "
-            "Baixe o CSV no Kaggle (*Telco Customer Churn*, de blastchar) e envie o arquivo abaixo."
-        )
         st.stop()
 
     try:
@@ -163,7 +187,10 @@ def carrega_base():
         st.rerun()
         return df
     except ValueError as erro:
-        st.error(f"O arquivo enviado não passou na validação: {erro}")
+        st.error(
+            f"O arquivo enviado não passou na validação: {erro}\n\n"
+            "Confira se é o arquivo da base *Telco Customer Churn* (o `.csv` que está dentro do `.zip`)."
+        )
         st.stop()
 
 

@@ -1,0 +1,10 @@
+# Dependências do projeto de análise de churn.
+# Versões sem fixar por enquanto; na Etapa 7 (GitHub) vamos fixar
+# as versões que você efetivamente usou (rode: pip freeze) para
+# garantir que o dashboard publicado funcione igual ao local.
+
+pandas
+numpy
+plotly        # gráficos interativos do dashboard (Etapa 5)
+streamlit     # aplicação web (Etapa 5)
+jupyter       # para abrir o notebook eda.ipynb

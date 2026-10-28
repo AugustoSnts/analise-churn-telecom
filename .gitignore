@@ -1,0 +1,30 @@
+# ---------------------------------------------------------------
+# .gitignore — arquivos que NÃO devem ir para o GitHub
+# ---------------------------------------------------------------
+
+# Dados: o CSV do Kaggle não deve ser versionado.
+# A linha "!" abaixo libera só o README da pasta.
+data/*.csv
+data/*.db
+!data/README.md
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# Arquivos temporários do Python e do Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Segredos e credenciais (nunca publicar)
+.env
+*.key
+secrets.toml
+
+# Arquivos de sistema/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

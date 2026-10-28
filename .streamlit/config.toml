@@ -1,0 +1,15 @@
+# ---------------------------------------------------------------
+# Tema do Streamlit (escuro, com roxo como cor de destaque)
+# ---------------------------------------------------------------
+# Este arquivo define o tema "nativo" (fundo, textos, botões, sliders).
+# O CSS do app.py complementa o que o tema não alcança (cartões de KPI, etiquetas dos filtros).
+# O Streamlit lê este arquivo da pasta de ONDE você roda `streamlit run app.py`.
+# Rode sempre a partir da raiz do projeto (a pasta que contém app.py e .streamlit/).
+# No Streamlit Community Cloud ele também é lido a partir da raiz do repositório.
+
+[theme]
+base = "dark"
+primaryColor = "#8B5CF6"            # roxo: sliders, botões e itens selecionados
+backgroundColor = "#0E1117"         # fundo da página
+secondaryBackgroundColor = "#171A23" # fundo da sidebar e dos blocos
+textColor = "#E5E7EB"               # texto principal (cinza bem claro, menos cansativo que branco puro)

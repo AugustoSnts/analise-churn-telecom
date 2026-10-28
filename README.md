@@ -72,7 +72,8 @@ Não é necessário executar o projeto para conhecer seus resultados. A demonstr
 
 > **O arquivo de dados (CSV) não está neste repositório.** A licença da base no Kaggle é "Data files © Original Authors" e não autoriza explicitamente a redistribuição. Para reproduzir a análise, baixe a base [Telco Customer Churn no Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn) e siga as instruções abaixo. Para conhecer os resultados sem executar o projeto, consulte o vídeo de demonstração, as capturas de tela e o notebook disponíveis neste README.
 
-**Pré-requisitos:** Python 3.11 ou superior, `git` e uma conta gratuita no Kaggle (só para baixar o CSV).
+**Pré-requisitos:** Python Python 3.13.5
+ ou superior, `git` e uma conta gratuita no Kaggle (só para baixar o CSV).
 
 ### Passo 1: baixar o projeto e instalar as dependências
 
